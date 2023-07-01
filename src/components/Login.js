@@ -1,8 +1,38 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+// import { GoogleLogin } from 'react-google-login';
 
 export default function Login() {
+  // function handleGoogleLoginSuccess(response) {
+  //   // Handle the successful login response
+  //   console.log('Google login successful:', response);
+  // }
+  
+  // function handleGoogleLoginFailure(error) {
+  //   // Handle the failed login response
+  //   console.log('Google login failed:', error);
+  // }
+  
+  // function startGoogleSignIn() {
+  //   const { credential } = google.accounts.id.initialize({
+  //     client_id: '430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com',
+  //     callback: handleCredentialResponse,
+  //   });
+  
+  //   google.accounts.id.prompt(credential);
+  // }
+  
   return (
+    <>
+     {/* return ( */}
+      {/* <GoogleLogin
+        clientId="430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com"
+        buttonText="Sign in with Google"
+        onSuccess={handleGoogleLoginSuccess}
+        onFailure={handleGoogleLoginFailure}
+        cookiePolicy={'single_host_origin'}
+      /> */}
+    {/* // ); */}
 <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
   
   <div className="flex shadow-md">
@@ -29,7 +59,7 @@ export default function Login() {
 
           <div className="mb-3">
             <button className="mb-1.5 block w-full text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md">Sign in</button>
-            <button className="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+            <button  className="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
               <img className="w-5 mr-2" src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"/>
               Sign in with Google
             </button>
@@ -53,5 +83,7 @@ export default function Login() {
       {/* <p className="text-center">Made by <a target="_blank" href="https://www.instagram.com/_inubayuaji/" className="text-purple-700">Inu Bayu Aji</a> and ispired by <a target="_blank" href="https://dribbble.com/shots/17564792-Log-in-page-Untitled-UI" className="text-purple-700">this</a>.</p> */}
   {/* </div> */}
 </div>
+</>
+
   )
 }

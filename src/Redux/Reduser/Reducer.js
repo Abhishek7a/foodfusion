@@ -35,7 +35,7 @@ const cartSlice = createSlice({
   initialState :[],
   reducers: {
     add: (state, action) => {
-      let find = state.findIndex((item) => item.id === action.payload.id);
+      let find = state.findIndex((item) => item.idMeal === action.payload);
       // if (find >= 0) 
         // state[find].quantity +=1;
       // else

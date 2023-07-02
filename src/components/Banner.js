@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa"
 import { HiLocationMarker } from "react-icons/hi"
 export default function Navbar() {
+  const [selectedOption, setSelectedOption] = useState('');
+  const [item, setItem] = useState([]);
+
+  const URL = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
+  // const URL2 = `https://www.themealdb.com/api/json/v1/1/${filter}.php`;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(URL);
+        const food = response.data;
+        setItem(food.meals);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  }, []);
+
+  const handleSelect = (event) => {
+    setSelectedOption(event.target.value);
+  };
   return (
     <>
       <header className='h-96' style={{ backgroundImage: "url(background.avif)" }}>
@@ -46,12 +68,17 @@ export default function Navbar() {
           </div>
           <div className='bg-white flex mx-auto mt-5 py-3 w-1/2 justify-around rounded'>
             <div className='flex border-gray-500'>
-              <div  className='text-red-500 mt-1 text-xl'>
+              <div className='text-red-500 mt-1 text-xl'>
                 <HiLocationMarker />
               </div>
-              <input className='outline-none px-5 ' type="text" placeholder='chandigarh' />
+              <select value={selectedOption} onChange={handleSelect}>
+                {item.map((area) => {
+                  return (<option value={area.strArea}>{area.strArea}</option>)
+                })
+                }
+              </select>
             </div>
-            
+
             <div className='flex '>
               <div className='text-red-500 mt-1 text-xl'>
                 <FaSearch />

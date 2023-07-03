@@ -9,7 +9,7 @@ export default function FoodCard() {
   const [hasMore, sethasMore] = useState(true)
   const filter = useSelector((state) => state.filter);
   // const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
-  const URL = `https://www.themealdb.com/api/json/v1/1/${filter}.php`;
+  const URL = `https://www.themealdb.com/api/json/v1/1/categories.php`;
   const fetchMoreData=()=>{
     setTimeout(()=>{
       if(meal.length>6)
@@ -30,7 +30,7 @@ export default function FoodCard() {
     }
     fetchData();
   }, [])
-// console.log(meal);
+console.log(meal);
   if (!meal)
     return <h1>Loading...</h1>
 

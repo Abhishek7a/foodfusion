@@ -47,7 +47,7 @@ export default function SignUp() {
       </div>
     </div>
 
-    <div className="flex flex-wrap content-center justify-center rounded-r-md bg-white" style={{width: "24rem", height: "32rem"}}>
+    <div className="flex flex-wrap content-center justify-center rounded-r-md bg-white md:object-none" style={{width: "24rem", height: "32rem"}}>
       <img className="bg-center bg-no-repeat bg-cover rounded-r-md" src="2.png"/>
     </div>
 

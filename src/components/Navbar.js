@@ -42,17 +42,17 @@ export default function Navbar() {
     }, []);
     console.log(selectedOption);
     return (
-        <div className='flex justify-between'>
+        <div className='flex justify-between bg-gray-900 '>
             <div className='w-28 mx-auto'>
-                <img src="main_logo.png" alt="" />
+                <img src="FFood.png" alt="" />
             </div>
-            <div className='bg-white flex mx-auto mt-5 py-3 w-1/2 justify-evenly  rounded'>
-                <div className=' border-gray-500'>
-                    <div className=' text-red-500 text-xl'>
+            <div className='bg-gray-900 flex mx-auto mt-5 p-5 w-1/2 justify-evenly  rounded'>
+                <div className='flex border-gray-500 pb-3'>
+                    <div className='mt-1 text-red-500 text-xl'>
                         <HiLocationMarker />
                     </div>
                     {/* <input className='outline-none ' type="text" placeholder='chandigarh' /> */}
-                    <select value={selectedOption} onChange={handleSelect}>
+                    <select className='outline-none ps-3 bg-gray-900 text-white' value={selectedOption} onChange={handleSelect}>
                         {item.map((area) => {
                             return(<option value={area.strArea}>{area.strArea}</option>)
                         })
@@ -60,14 +60,14 @@ export default function Navbar() {
                     </select>
                 </div>
 
-                <div className=' '>
-                    <div className='text-red-500 mt-1 text-xl'>
+                <div className='pb-3 flex'>
+                    <div className='text-green-500 mt-1 text-xl'>
                         <FaSearch />
                     </div>
-                    <input type="text" className='outline-none px-5' placeholder='Search' />
+                    <input type="text" className='outline-none px-5 bg-gray-900 text-white' placeholder='Search' />
                 </div>
             </div>
-            <Link to='/cart' className='text-3xl m-auto px-5 pointer '>
+            <Link to='/cart' className=' text-white text-3xl m-auto px-5 pointer '>
                 <FaUserCircle />
             </Link>
 

@@ -35,7 +35,7 @@ export default function ProductList() {
                   <h3 className="text-sm text-gray-700">
                     <a href="#" className=' '>
                       <span aria-hidden="true" className=" absolute inset-0"></span>
-                      {item.strMeal}
+                      {item.strMeal.slice(0,40)}
                     </a>
                   </h3>
                   {/* <p className="mt-1 text-sm text-gray-500">Black</p> */}

@@ -40,7 +40,7 @@ export default function Navbar() {
         fetchData();
         fetchDataByName();
     }, []);
-    console.log(selectedOption);
+    // console.log(selectedOption);
     return (
         <div className='flex justify-between bg-gray-900 '>
             <div className='w-28 mx-auto'>

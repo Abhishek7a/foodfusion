@@ -62,7 +62,9 @@ export default function Cart() {
                       </button>
                     </div>
                   </div>
-                  {cart.map((item) => {
+                  {
+                  // cart.length === 0 ? <h1 className='text-red-600 mt-3 text-center'>Cart is Empty</h1> : 
+                  cart.cart.map((item) => {
                     return (<div className="mt-8" key={item.idMeal}>
                       <div className="flow-root">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
@@ -116,7 +118,7 @@ export default function Cart() {
                         or
                       </div>
                       <Link to="/" type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                        Continue Shopping
+                        Add more items
                         <span aria-hidden="true"> &rarr;</span>
                       </Link>
                     </p>

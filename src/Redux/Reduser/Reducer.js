@@ -1,3 +1,46 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  cart: [],
+  quantity: 1
+};
+
+const cartSlice = createSlice({
+  name: 'cart',
+  initialState,
+  reducers: {
+    add: (state, action) => {
+      let find = state.cart.findIndex((item) => item.idMeal === action.payload.idMeal);
+      if (find >= 0)
+        state.cart[find].quantity += 1;
+      else
+        state.cart.push(action.payload);
+    },
+    remove: (state, action) => {
+      return state.cart.filter((item) => item.idMeal !== action.payload);
+    },
+    increaseItemQuantity: (state, action) => {
+      state.quantity = state.quantity + 1;
+      // state.cart.map((item) => {
+      // if (item.idMeal === action.payload.idMeal) {
+        // return { ...item, quantity: item.quantity + 1 };
+        // }
+        // });
+      },
+      decreaseItemQuantity: (state, action) => {
+      if (state.quantity > 1)
+      state.quantity = state.quantity - 1;
+      // state.cart.map((item) => {
+      //   if (item.idMeal === action.payload) {
+      //     return { ...item, quantity: item.quantity - 1 };
+      //   }
+      // });
+    },
+  }
+})
+export const { add, remove, increaseItemQuantity, decreaseItemQuantity } = cartSlice.actions;
+export default cartSlice.reducer;
+
 // const { createSlice } = require('@reduxjs/toolkit');
 
 // const cartSlice = createSlice({
@@ -20,37 +63,3 @@
 // });
 // export const { add, remove } = cartSlice.actions;
 // export default cartSlice.reducer;
-
-import { createSlice } from '@reduxjs/toolkit';
-
-
-const initialState={
-  cart:[],
-  quantity:0
-};
-
-
-const cartSlice = createSlice({
-  name: 'cart',
-  initialState :[],
-  reducers: {
-    add: (state, action) => {
-      let find = state.findIndex((item) => item.idMeal === action.payload);
-      // if (find >= 0) 
-        // state[find].quantity +=1;
-      // else
-        state.push(action.payload);
-    },
-    remove: (state, action) => {
-      // const nextCartItems = state.filter((cartItem) => cartItem.id !== action.payload.id);
-      // state.cartItems = nextCartItems;
-      // const itemId = action.payload;
-      return state.filter((item) => item.idMeal !== action.payload);
-    //   filter((e) => {
-    //     return e !== id;
-    // }
-    },
-  }
-})
-export const { add, remove } = cartSlice.actions;
-export default cartSlice.reducer;

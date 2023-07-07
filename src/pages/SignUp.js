@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [form, setform] = useState({ name: undefined, password: undefined, email: undefined });
   const URL = 'http://localhost:5000/signUp';
   // useEffect(() => {
   // }, [])
+
+
+  const goBack = () => {
+    if (navigate(-1) === '/checkout')
+      navigate('/checkout');
+    else if (navigate(-2) === '/checkout')
+      navigate('/checkout');
+    else
+      navigate('/');
+  };
 
   const fetchData = async () => {
     try {
@@ -17,20 +28,20 @@ export default function SignUp() {
         headers: {
           'Content-Type': 'application/json'
         },
-        withCredentials:true,
+        withCredentials: true,
         body: JSON.stringify(form)
       });
       const result = await response.json();
       console.log(result);
       if (response.status === 400)
-        toast.warn(result.error)
+        toast.warn(result.error);
       if (response.status === 500)
-        toast.error(result.error)
+        toast.error(result.error);
       if (response.status === 200) {
-        toast.success(result.message)
+        await toast.success(result.message);
         setform({ name: "", password: "", email: "" });
         Cookies.set('jwt', result.token);
-
+        goBack()
       }
 
     }
@@ -61,16 +72,16 @@ export default function SignUp() {
             <form onSubmit={sendForm} className="mt-4">
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Name</label>
-                <input type="text" placeholder="Enter your name" id='name' name='name' onChange={handleOnChange} value={form.name} className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+                <input type="text" placeholder="Enter your name" id='name' name='name' onChange={handleOnChange} value={form.name} className="block w-full rounded-md border border-gray-300 focus:border-green-700  focus:outline-none focus:ring-1 focus:ring-green-700 py-1 px-1.5 text-gray-500" />
               </div>
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Email</label>
-                <input type="email" placeholder="Enter your email" id='email' onChange={handleOnChange} value={form.email} className="block w-full rounded-md border border-gray-300 focus:border-red-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+                <input type="email" placeholder="Enter your email" id='email' onChange={handleOnChange} value={form.email} className="block w-full rounded-md border border-gray-300 focus:border-green-700 focus:outline-none focus:ring-1 focus:ring-green-700 py-1 px-1.5 text-gray-500" />
               </div>
 
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Password</label>
-                <input type="password" placeholder="*****" id='password' onChange={handleOnChange} value={form.password} className="block w-full rounded-md border border-gray-300 focus:border-green-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+                <input type="password" placeholder="*****" id='password' onChange={handleOnChange} value={form.password} className="block w-full rounded-md border border-gray-300 focus:border-green-700 focus:outline-none focus:ring-1 focus:ring-green-700 py-1 px-1.5 text-gray-500" />
               </div>
 
 

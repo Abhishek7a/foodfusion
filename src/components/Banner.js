@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa"
 import { HiLocationMarker } from "react-icons/hi"
+import Cookies from 'js-cookie';
+import { FaUserCircle } from "react-icons/fa"
+
 export default function Navbar() {
   const [selectedOption, setSelectedOption] = useState('');
   const [item, setItem] = useState([]);
@@ -48,16 +51,25 @@ export default function Navbar() {
                 {/* </svg> */}
                 {/* <span className="ml-3 text-xl">Tailblocks</span> */}
                 {/* </a> */}
-                <nav className="md:ml-auto flex mt-5 text-white flex-wrap items-center text-base justify-center">
-                  <Link to="signUp" className="mr-5  hover:text-red-500 py-2 px-3 bg-red-700 rounded hover:bg-gray-200">Sign Up</Link>
-                </nav>
-                <nav className="md:ml-auto flex mt-4 text-white flex-wrap items-center text-base justify-center">
-                <Link to="/login" className="inline-flex items-center hover:bg-gray-200 hover:text-green-500 bg-green-500  text-white border-0 py-2 px-3 focus:outline-none  rounded text-base  md:mt-0">Log In
-                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </Link>
-                </nav>
+                {Cookies.get('jwt') ?
+                <div className='text-white text-3xl m-auto px-5 pointer '>
+
+                  <FaUserCircle />
+                </div>:
+                  // return(
+                  <>
+                    <nav className="md:ml-auto flex mt-5 text-white flex-wrap items-center text-base justify-center">
+                      <Link to="signUp" className="mr-5  hover:text-red-500 py-2 px-3 bg-red-700 rounded hover:bg-gray-200">Sign Up</Link>
+                    </nav>
+                    <nav className="md:ml-auto flex mt-4 text-white flex-wrap items-center text-base justify-center">
+                      <Link to="/login" className="inline-flex items-center hover:bg-gray-200 hover:text-green-500 bg-green-500  text-white border-0 py-2 px-3 focus:outline-none  rounded text-base  md:mt-0">Log In
+                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                          <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                      </Link>
+                    </nav>
+                  </> 
+                }
               </div>
             </div>
           </div>
@@ -73,7 +85,7 @@ export default function Navbar() {
                 </div>
                 <select value={selectedOption} className='outline-none ps-3' onChange={handleSelect}>
                   {item.map((area) => {
-                    return (<option  value={area.strArea}>{area.strArea}</option>)
+                    return (<option value={area.strArea}>{area.strArea}</option>)
                   })
                   }
                 </select>

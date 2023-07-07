@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Footer() {
-  const [meal, setMeal] = useState([])
+  // const [meal, setMeal] = useState([])
+  const [rows, setRows] = useState([]);
 
   const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
   useEffect(() => {
@@ -11,101 +12,86 @@ export default function Footer() {
       try {
         const response = await axios.get(URL);
         const food = response.data.meals;
-        setMeal(food);
+        // setMeal(food);
+        setRows(food);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
   }, [])
-  console.log(meal);
+  const createTableRows = () => {
+    // Create rows with four elements each
+    const tableRows = [];
+    let currentRow = [];
+
+    rows.forEach((row, index) => {
+      currentRow.push(row.strCategory);
+
+      if ((index + 1) % 5=== 0) {
+        tableRows.push(currentRow);
+        currentRow = [];
+      }
+    });
+
+    if (currentRow.length > 0) {
+      tableRows.push(currentRow);
+    }
+
+    return tableRows;
+  };
+  // console.log(meal);
   return (
-    <footer className="text-gray-600 body-font" >
-      <div className="container px-5  mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+    <footer className="text-gray-600 body-font  bg-gray-100" >
+      <div className="container flex justify-between p-5  mx-auto  md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="w-44 flex-shrink-0  md:mx-0 mx-auto text-center md:text-left">
           {/* <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"> */}
           {/* </a> */}
-          <img src="2.png" alt="" />
+          <img src="../../2.png" className='mix-blend-multiply' alt="" />
         </div>
-        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav className="list-none mb-10 ">
-              {meal.map((item) =>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">{item.strCategory}</a>
-                </li>
-              )}
-              {/* <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li> */}
-            </nav>
-          </div>
-          {/* <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>*/}
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
 
+        <div className="flex-grow mx-auto flex pt-5 flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          {/* <div className="lg:w-1/4 md:w-1/2 w-full px-4"> */}
+            <nav className="list-none mb-10 ">
+              <table>
+                <tbody className='mt-5'>
+                  <h2 className="title-font  font-medium  text-center text-gray-900 tracking-widest text-sm mb-3 ml-9">CATEGORIES</h2>
+                  {createTableRows().map((row, index) => (
+                    <tr key={index}  >
+                      {row.map((data, dataIndex) => (
+                        <td className='px-4 text-center hover:text-red-700 cursor-pointer' key={dataIndex}> <Link to={`/productList/${data}`}>{data}</Link></td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </nav>
+        </div>
+         
+          <div className="lg:w-1/4 md:w-1/2 w-full p-4 ">
             <div className=" justify-center ">
-              <div className="flex items-center border  rounded-lg px-4 py-2 w-52 mx-2">
+              <div className="flex items-center rounded px-4 py-2 w-52 mx-2  border-2 border-solid border-gray-500">
                 <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" className="w-7 md:w-8" />
                 <div className="text-left ml-3">
                   <p className='text-xs '>Download on </p>
                   <p className="text-sm md:text-base"> Google Play Store </p>
                 </div>
               </div>
-              <div className="flex items-center border mt-4  rounded-lg px-4 py-2 w-44 mx-2">
+              <div className="flex items-center  border-2 border-solid border-gray-500 mt-4  rounded px-4 py-2 w-52 mx-2">
                 <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" className="w-7 md:w-8" />
-                <div className="text-left ">
+                <div className="text-left ml-3">
                   <p className='text-xs '>Download on </p>
                   <p className="text-sm md:text-base"> Apple Store </p>
                 </div>
               </div>
             </div>
-          </div> 
-        </div>
+          </div>
+          
       </div>
-      <div className="bg-gray-100">
+      <div className="bg-gray-200">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-gray-500 text-sm text-center sm:text-left">© 2023 Food Fusion —
-            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">foodfusion@gmail.com</a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
             <a className="text-gray-500">

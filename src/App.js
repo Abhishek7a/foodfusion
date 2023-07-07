@@ -9,12 +9,16 @@ import store from './Redux/Store';
 import CheckOutPage from './pages/CheckOutPage';
 import ItemPage from './pages/ItemPage';
 import ItemList from './pages/ItemList';
+import OrderPage from './pages/OrderPage';
+import NotFound from './pages/PageNotFound';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <>
       <Provider store={store}>
         <Router>
+          <ScrollToTop/>
           <Routes>
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/SignUp' element={<SignUp />} />
@@ -22,7 +26,9 @@ function App() {
             <Route exact path='/checkout' element={<CheckOutPage />} />
             <Route exact path='/item/:id' element={<ItemPage />} />
             <Route exact path='/cart' element={<Cart />} />
+            <Route exact path='/orderPage' element={<OrderPage />} />
             <Route exact path='/productList/:id' element={<ItemList />} />
+            <Route path='*' element={<NotFound/>} />
           </Routes>
         </Router >
       </Provider >

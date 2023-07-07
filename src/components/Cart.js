@@ -38,9 +38,9 @@ export default function Cart() {
   //   fetchData();
   // }, [])
   let cost = 0;
-  // items.map((item) => {
-    // cost += parseInt(item.idMeal.slice(2, 4));
-  // })
+  cart.cart.map((item) => {
+    cost += parseInt(item.idMeal.slice(2, 4));
+  })
   // console.log(items);
   return (
     <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">

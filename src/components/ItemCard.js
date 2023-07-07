@@ -19,7 +19,11 @@ export default function ItemCard() {
             try {
                 const response = await axios.get(URL);
                 const food = response.data;
-                setItem(food.meals);
+                const modifiedData = food.meals.map((item) => ({
+                    ...item,
+                    quantity: 1, // Set the initial quantity value
+                  }));
+                setItem(modifiedData);
             } catch (error) {
                 console.error(error);
             }
@@ -28,9 +32,9 @@ export default function ItemCard() {
     }, []);
     // console.log(id);
     return (
-        <section className="text-gray-600 body-font overflow-hidden" >
+        <section className="text-gray-600 body-font overflow-hidden pt-20" >
             <div className="container px-5 py-8 mx-auto">
-                {item.map((item) =>
+                {item.length==0?<h4>Loading...</h4>:item.map((item) =>
                     <div className="lg:w-4/5 mx-auto flex flex-wrap" key={item.idMeal} >
                         <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-56 object-cover object-center rounded" src={item.strMealThumb} />
                         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -89,7 +93,7 @@ export default function ItemCard() {
                             <div className="flex justify-between">
                                 <span className="title-font font-medium text-2xl text-gray-900">₹{item.idMeal.slice(2, 4)}.00</span>
                                 <div className='flex gap-2 ml-40'>
-                                    <Link to='/checkout' className="flex ml-auto text-white hover:bg-red-600 bg-red-500 border-0 py-2 px-6 focus:outline-none  rounded">Check out</Link>
+                                    <Link to='/checkout' onClick={()=>handleAdd(item)}  className="flex ml-auto text-white hover:bg-red-600 bg-red-500 border-0 py-2 px-6 focus:outline-none  rounded">Check out</Link>
                                     <Link to='/cart' onClick={()=>handleAdd(item)} className="flex ml-auto text-white hover:bf-green-600 bg-green-500 border-0 py-2 px-6 focus:outline-none  rounded">Add to cart</Link>
                                 </div>
                                 <button className="rounded-full w-10 h-10 bg-gray-200 hover:bg-pink-300  p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">

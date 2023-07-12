@@ -1,47 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { remove } from '../Redux/Reduser/Reducer';
 
-export default function Cart() {
+export default function Cart(props) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
-  // const [meal, setMeal] = useState([])
-  // const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
-  const navigate = useNavigate();
 
-  const goBack = () => {
-    navigate(-1);
-  };
- 
   const handleRemove = (productId) => {
-    // console.log(productId);
     dispatch(remove(productId));
   };
- 
-  // useEffect(() => {
-  //   dispatch((remove()));
-  // }, [cart]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(URL);
-  //       const food = response.data.categories;
-  //       setMeal(food);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [])
   let cost = 0;
   cart.cart.map((item) => {
     cost += parseInt(item.idMeal.slice(2, 4));
   })
-  // console.log(items);
+
   return (
     <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
@@ -54,7 +28,7 @@ export default function Cart() {
                   <div className="flex items-start justify-between">
                     <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
                     <div className="ml-3 flex h-7 items-center">
-                      <button onClick={goBack} type="button" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                      <button onClick={props.openCart} type="button" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
                         <span className="sr-only">Close panel</span>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -63,43 +37,38 @@ export default function Cart() {
                     </div>
                   </div>
                   {
-                  // cart.length === 0 ? <h1 className='text-red-600 mt-3 text-center'>Cart is Empty</h1> : 
-                  cart.cart.map((item) => {
-                    return (<div className="mt-8" key={item.idMeal}>
-                      <div className="flow-root">
-                        <ul role="list" className="-my-6 divide-y divide-gray-200">
-                          <li className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img src={item.strMealThumb} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center" />
-                            </div>
-
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <a href="#">{item.strMeal}</a>
-                                  </h3>
-                                  <p className="ml-4">₹{item.idMeal.slice(2, 4)}.00</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">{item.strCategory}</p>
+                    cart.cart.map((item) => {
+                      return (<div className="mt-8" key={item.idMeal}>
+                        <div className="flow-root">
+                          <ul role="list" className="-my-6 divide-y divide-gray-200">
+                            <li className="flex py-6">
+                              <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img src={item.strMealThumb} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center" />
                               </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">Qty 1</p>
-
-                                <div className="flex">
-                                  <button
-                                    onClick={() =>handleRemove(item.idMeal
-                                    )}
-                                    type="button" className="font-medium text-red-600 hover:text-red-500">Remove</button>
+                              <div className="ml-4 flex flex-1 flex-col">
+                                <div>
+                                  <div className="flex justify-between text-base font-medium text-gray-900">
+                                    <h3>
+                                      <a href="#">{item.strMeal}</a>
+                                    </h3>
+                                    <p className="ml-4">₹{item.idMeal.slice(2, 4)}.00</p>
+                                  </div>
+                                  <p className="mt-1 text-sm text-gray-500">{item.strCategory}</p>
+                                </div>
+                                <div className="flex flex-1 items-end justify-between text-sm">
+                                  <p className="text-gray-500">Qty 1</p>
+                                  <div className="flex">
+                                    <button onClick={() => handleRemove(item.idMeal)}
+                                      type="button" className="font-medium text-red-600 hover:text-red-500">Remove</button>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </li>
-                        </ul>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                    )
-                  })}
+                      )
+                    })}
 
                 </div>
 
@@ -130,6 +99,5 @@ export default function Cart() {
         </div>
       </div>
     </div>
-
   )
 }

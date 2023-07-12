@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Checkout from '../components/Checkout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Cart from '../components/Cart'
+import OrderTrack from '../components/OrderTrack'
 
-export default function CheckOutPage() {
+export default function TrackPage() {
     const [cart, setcart] = useState(false)
 
     const openCart = () => {
@@ -13,7 +13,7 @@ export default function CheckOutPage() {
     return (
         <>
             <Navbar openCart={openCart} />
-            <Checkout />
+            <OrderTrack />
             <Footer />
             {cart === true ? <Cart openCart={openCart} /> : ""}
         </>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Footer() {
-  // const [meal, setMeal] = useState([])
   const [rows, setRows] = useState([]);
 
   const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
@@ -12,14 +11,14 @@ export default function Footer() {
       try {
         const response = await axios.get(URL);
         const food = response.data.meals;
-        // setMeal(food);
         setRows(food);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-  }, [])
+  }, []);
+
   const createTableRows = () => {
     // Create rows with four elements each
     const tableRows = [];
@@ -28,7 +27,7 @@ export default function Footer() {
     rows.forEach((row, index) => {
       currentRow.push(row.strCategory);
 
-      if ((index + 1) % 5=== 0) {
+      if ((index + 1) % 4 === 0) {
         tableRows.push(currentRow);
         currentRow = [];
       }
@@ -37,56 +36,48 @@ export default function Footer() {
     if (currentRow.length > 0) {
       tableRows.push(currentRow);
     }
-
     return tableRows;
   };
-  // console.log(meal);
   return (
     <footer className="text-gray-600 body-font  bg-gray-100" >
-      <div className="container flex justify-between p-5  mx-auto  md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-44 flex-shrink-0  md:mx-0 mx-auto text-center md:text-left">
-          {/* <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"> */}
-          {/* </a> */}
-          <img src="../../2.png" className='mix-blend-multiply' alt="" />
+      <div className="container flex justify-around md:p-5  mx-auto  md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="w-40 flex-shrink-0  md:mx-0 mx-auto text-center md:text-left ">
+          <img src="../../main_logo.png" alt="" />
+        </div>
+        <div className="flex-grow mx-auto flex lg:pt-5 flex-wrap -mb-10 md:mt-0 sm:mt-0 mt-10 md:text-left text-center ">
+          <nav className="list-none mb-10 ">
+            <table>
+              <tbody className='mt-5'>
+                <h2 className="title-font  font-medium  text-center text-gray-900 tracking-widest text-sm mb-3 md:ml-10">CATEGORIES</h2>
+                {createTableRows().map((row, index) => (
+                  <tr key={index}  >
+                    {row.map((data, dataIndex) => (
+                      <td className='md:px-4 text-center hover:text-red-700 cursor-pointer' key={dataIndex}> <Link to={`/productList/${data}`}>{data}</Link></td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </nav>
         </div>
 
-        <div className="flex-grow mx-auto flex pt-5 flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          {/* <div className="lg:w-1/4 md:w-1/2 w-full px-4"> */}
-            <nav className="list-none mb-10 ">
-              <table>
-                <tbody className='mt-5'>
-                  <h2 className="title-font  font-medium  text-center text-gray-900 tracking-widest text-sm mb-3 ml-9">CATEGORIES</h2>
-                  {createTableRows().map((row, index) => (
-                    <tr key={index}  >
-                      {row.map((data, dataIndex) => (
-                        <td className='px-4 text-center hover:text-red-700 cursor-pointer' key={dataIndex}> <Link to={`/productList/${data}`}>{data}</Link></td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </nav>
-        </div>
-         
-          <div className="lg:w-1/4 md:w-1/2 w-full p-4 ">
-            <div className=" justify-center ">
-              <div className="flex items-center rounded px-4 py-2 w-52 mx-2  border-2 border-solid border-gray-500">
-                <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" className="w-7 md:w-8" />
-                <div className="text-left ml-3">
-                  <p className='text-xs '>Download on </p>
-                  <p className="text-sm md:text-base"> Google Play Store </p>
-                </div>
-              </div>
-              <div className="flex items-center  border-2 border-solid border-gray-500 mt-4  rounded px-4 py-2 w-52 mx-2">
-                <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" className="w-7 md:w-8" />
-                <div className="text-left ml-3">
-                  <p className='text-xs '>Download on </p>
-                  <p className="text-sm md:text-base"> Apple Store </p>
-                </div>
-              </div>
+        <div className="lg:w-1/4 md:w-1/2 w-full p-4  mt-10">
+          <div className="flex items-center rounded px-4 py-2 w-52 mx-auto  border-2 border-solid border-gray-500">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" className="w-7 md:w-8" />
+            <div className="text-left ml-3">
+              <p className='text-xs '>Download on </p>
+              <p className="text-sm md:text-base"> Google Play Store </p>
             </div>
           </div>
-          
+          <div className="flex items-center  border-2 border-solid border-gray-500 mt-4  rounded px-4 py-2 w-52 mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" className="w-7 md:w-8" />
+            <div className="text-left ml-3">
+              <p className='text-xs '>Download on </p>
+              <p className="text-sm md:text-base"> Apple Store </p>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div className="bg-gray-200">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">

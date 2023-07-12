@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Checkout from '../components/Checkout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import UserInfo from '../components/UserInfo'
 import Cart from '../components/Cart'
 
-export default function CheckOutPage() {
+export default function UserProfile() {
     const [cart, setcart] = useState(false)
 
     const openCart = () => {
@@ -13,7 +13,7 @@ export default function CheckOutPage() {
     return (
         <>
             <Navbar openCart={openCart} />
-            <Checkout />
+            <UserInfo />
             <Footer />
             {cart === true ? <Cart openCart={openCart} /> : ""}
         </>

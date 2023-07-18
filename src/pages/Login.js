@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { GoogleLogout, GoogleLogin } from 'react-google-login';
 import Cookies from 'js-cookie';
+import logo from '../assets/2.png';
 
 export default function Login() {
   const client_id = '430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com';
@@ -96,7 +97,7 @@ export default function Login() {
       <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 md:py-10">
         <div className=" lg:flex-row shadow-md md:flex-col sm:flex flex-col ">
           <div className="flex flex-wrap content-center  justify-center lg:rounded-l-md  rounded-t-md   bg-white md:object-none">
-            <img className="bg-center bg-no-repeat bg-cover lg:w-96 w-24" src="2.png" />
+            <img className="bg-center bg-no-repeat bg-cover lg:w-96 w-24" src={logo} />
           </div>
           <div className="flex flex-wrap content-center justify-center lg:rounded-r-md rounded-b-md bg-white  lg:p-10 pt-0 p-10 ">
             <div className="w-72">

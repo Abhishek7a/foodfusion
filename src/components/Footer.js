@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../assets/main_logo.png';
 
 export default function Footer() {
   const [rows, setRows] = useState([]);
@@ -42,7 +43,7 @@ export default function Footer() {
     <footer className="text-gray-600 body-font  bg-gray-100" >
       <div className="container flex justify-around md:p-5  mx-auto  md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-40 flex-shrink-0  md:mx-0 mx-auto text-center md:text-left ">
-          <img src="../../main_logo.png" alt="" />
+          <img src={logo} alt="" />
         </div>
         <div className="flex-grow mx-auto flex lg:pt-5 flex-wrap -mb-10 md:mt-0 sm:mt-0 mt-10 md:text-left text-center ">
           <nav className="list-none mb-10 ">

@@ -8,6 +8,7 @@ import { Popover } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logo from '../assets/logo1.png';
 
 export default function Navbar(props) {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function Navbar(props) {
   return (
     <div className='flex justify-between bg-gray-900 fixed w-full z-10'>
       <div className='w-24 '>
-        <img src="../logo1.png" alt="" />
+        <img src={logo} alt="logo" />
       </div>
       <div className='bg-gray-900 lg:flex hidden mx-auto mt-2 p-5 w-1/2 justify-around  rounded'>
         <div className='flex border-gray-500 pb-3'>

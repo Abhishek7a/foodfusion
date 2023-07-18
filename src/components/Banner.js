@@ -8,6 +8,8 @@ import { Popover } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUserCircle } from "react-icons/fa"
+import logo from '../assets/logo1.png';
+import backgroundImage from '../assets/background.avif';
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -39,11 +41,11 @@ export default function Navbar() {
   }
   return (
     <>
-      <header className='h-full' style={{ backgroundImage: "url(background.avif)" }}>
+      <header className='h-full' style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className='h-full bg-cover bg-center' style={{ background: "rgba(0,0,0,0.5" }}>
           <div className='flex justify-between '>
             <div className='w-28'>
-              <img src="logo1.png" alt="" />
+              <img src={logo} alt="" />
             </div>
             <div className="text-gray-600 body-font ">
               <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">

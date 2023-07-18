@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import SignUp from '../pages/SignUp';
+import logo from '../assets/logo.jpg';
 
 export default function OrderForm() {
     const cart = useSelector((state) => state.cart);
@@ -35,7 +36,7 @@ export default function OrderForm() {
                 currency: "INR",
                 name: "Food Fusion",
                 description: "Food Item Purchase ",
-                image: "logo.jpg",
+                image: {logo},
                 handler: () => {
                     alert("Payment Done")
                 },

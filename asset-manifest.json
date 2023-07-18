@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/food_fusion/static/css/main.db5e760b.css",
+    "main.js": "/food_fusion/static/js/main.2cdb7cc4.js",
+    "static/js/787.03de6df6.chunk.js": "/food_fusion/static/js/787.03de6df6.chunk.js",
+    "index.html": "/food_fusion/index.html",
+    "main.db5e760b.css.map": "/food_fusion/static/css/main.db5e760b.css.map",
+    "main.2cdb7cc4.js.map": "/food_fusion/static/js/main.2cdb7cc4.js.map",
+    "787.03de6df6.chunk.js.map": "/food_fusion/static/js/787.03de6df6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db5e760b.css",
+    "static/js/main.2cdb7cc4.js"
+  ]
+}

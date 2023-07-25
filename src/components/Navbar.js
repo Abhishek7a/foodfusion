@@ -173,7 +173,7 @@ export default function Navbar(props) {
           :
           <>
             <nav className="md:ml-auto flex mt-2 text-white flex-wrap items-center text-base justify-center">
-              <Link to="/signUp" className="mr-5  md:py-2 md:px-3 sm:p-2 p-2 bg-red-600 rounded hover:bg-red-700">Sign Up</Link>
+              <Link to="/signUp" className="md:mr-5 mr-2 md:py-2 md:px-3 sm:p-2 p-2 bg-red-600 rounded hover:bg-red-700">Sign Up</Link>
             </nav>
             <nav className="md:ml-auto flex mt-2 text-white flex-wrap items-center text-base justify-center">
               <Link to="/login" className="inline-flex items-center hover:bg-green-600  bg-green-500  border-0 md:py-2 md:px-3 sm:p-2 p-2 focus:outline-none  rounded text-base  md:mt-0">Log In
@@ -184,7 +184,7 @@ export default function Navbar(props) {
             </nav>
           </>
         }
-        <div onClick={() => props.openCart()} className=' text-white relative text-3xl m-auto px-5 md:mr-5 cursor-pointer '>
+        <div onClick={() => props.openCart()} className=' text-white relative text-3xl m-auto md:px-5 pr-5 pl-2 md:mr-5 cursor-pointer '>
           {cart.cart.length > 0 ? <span className='bg-green-600 absolute rounded-full text-sm right-3 px-1  dark:text-green-200'> {cart.cart.length}</span> : ""}
           <FaShoppingCart />
         </div>

@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="w-40 flex-shrink-0  md:mx-0 mx-auto text-center md:text-left ">
           <img src={logo} alt="" />
         </div>
-        <div className="flex-grow mx-auto flex lg:pt-5 flex-wrap -mb-10 md:mt-0 sm:mt-0 mt-10 md:text-left text-center ">
+        <div className="flex-grow mx-auto flex lg:pt-5 flex-wrap -mb-10  md:text-left text-center ">
           <nav className="list-none mb-10 ">
             <table>
               <tbody className='mt-5'>

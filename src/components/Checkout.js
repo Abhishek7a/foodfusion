@@ -33,20 +33,20 @@ export default function Checkout() {
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
             </div>
             <div className="flex mt-10 mb-5">
-              <h3 className="font-semibold  text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+              <h3 className="font-semibold  text-gray-600 text-xs uppercase md:w-2/5 w-3/5">Product Details</h3>
               <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-              <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+              <h3 className="font-semibold  text-gray-600 text-xs uppercase md:w-1/5 text-center md:block hidden">Price</h3>
               <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
             </div>
             {cart.cart.length === 0 ? <h1 className='text-red-600 text-center text-xl '>Your Cart is Empty</h1> : cart.cart.map((item) => {
               return (
                 <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={item.idMeal}>
-                  <div className="flex w-2/5">
+                  <div className="flex md:w-2/5 w-3/5">
                     <div className="w-20">
-                      <img className="h-24" src={item.strMealThumb} alt="" />
+                      <img className="h-24 " src={item.strMealThumb} alt="" />
                     </div>
                     <div className="flex flex-col justify-between ml-4 flex-grow">
-                      <span className="font-bold text-sm">{item.strMeal}</span>
+                      <span className="font-bold md:text-sm text-xs">{item.strMeal}</span>
 
                       <span className="text-green-500 text-xs">{item.strCategory}</span>
                       <button onClick={() => dispatch(remove(item.idMeal))} className="font-semibold hover:text-red-600 text-red-500 text-xs">Remove</button>
@@ -62,7 +62,7 @@ export default function Checkout() {
                       <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                     </svg>
                   </div>
-                  <span className="text-center w-1/5 font-semibold text-sm">₹{item.idMeal.slice(2, 4)}.00</span>
+                  <span className="text-center w-1/5 md:block hidden font-semibold text-sm">₹{item.idMeal.slice(2, 4)}.00</span>
                   <span className="text-center w-1/5 font-semibold text-sm">₹{item.idMeal.slice(2, 4) * item.quantity}.00</span>
                 </div>
               )

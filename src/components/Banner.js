@@ -151,7 +151,7 @@ export default function Navbar() {
                   </div> :
                   <div className='flex'>
                     <nav className="md:ml-auto flex mt-5 text-white flex-wrap items-center text-base justify-center">
-                      <Link to="signUp" className="mr-5  hover:text-red-500 md:py-2 md:px-3 p-2 bg-red-700 rounded hover:bg-gray-200">Sign Up</Link>
+                      <Link to="signUp" className="md:mr-5 mr-2 hover:text-red-500 md:py-2 md:px-3 p-2 bg-red-700 rounded hover:bg-gray-200">Sign Up</Link>
                     </nav>
                     <nav className="md:ml-auto flex mt-4 text-white flex-wrap items-center text-base justify-center">
                       <Link to="/login" className="inline-flex items-center hover:bg-gray-200 hover:text-green-500 bg-green-500  text-white border-0 md:py-2 md:px-3 p-2 focus:outline-none  rounded text-base  md:mt-0">Log In
@@ -168,7 +168,7 @@ export default function Navbar() {
           <div className='md:p-10'>
             <div className='text-white text-center mt-10'>
               <h1 className=' text-6xl  font-bold'><span className='text-red-600'>F</span>ood <span className='text-green-600'>F</span>usion</h1>
-              <p className='text-4xl mt-5 '>Find the best restaurants, cafés and bars in India</p>
+              <p className='md:text-4xl mt-5 text-xl text-gray-400'>Find the best restaurants, cafés and bars in India</p>
             </div>
             
             <div className='lg:bg-white lg:flex  mx-auto mt-5 w-3/4 md:w-1/2 justify-around rounded md:pb-0 pb-5'>

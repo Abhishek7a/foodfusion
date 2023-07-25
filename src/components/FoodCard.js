@@ -42,7 +42,7 @@ export default function FoodCard() {
     <section className="text-gray-600 body-font " >
       <div className="container md:px-5 md:py-24 py-5 mx-auto">
         <div className="flex flex-wrap -m-4 w-5/6 mx-auto">
-          {meal.length == 0 ? <h4>Loading...</h4> : meal.map((item) =>
+          {meal.length == 0 ? <h4 className='mx-auto'>Loading...</h4> : meal.map((item) =>
             <Link to={`/productList/${item.strCategory}`} className="md:p-4 pt-4 md:w-1/3" key={item.idCategory}>
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-gray-100">
                 <img className="lg:h-48 md:h-36 object-cover m-auto object-center" src={item.strCategoryThumb} alt="blog" />

@@ -56,7 +56,7 @@ export default function Cart(props) {
                                   <p className="mt-1 text-sm text-gray-500">{item.strCategory}</p>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
-                                  <p className="text-gray-500">Qty 1</p>
+                                  <p className="text-gray-500">Qty {item.quantity}</p>
                                   <div className="flex">
                                     <button onClick={() => handleRemove(item.idMeal)}
                                       type="button" className="font-medium text-red-600 hover:text-red-500">Remove</button>

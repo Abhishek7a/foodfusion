@@ -42,7 +42,7 @@ export default function ItemCard(props) {
     return (
         <section className="text-gray-600 body-font overflow-hidden pt-20" >
             <div className="container px-5 py-8 mx-auto">
-                {item.length == 0 ? <h4>Loading...</h4> : item.map((item) =>
+                {item.length == 0 ? <h4 className='mx-auto'>Loading...</h4>: item.map((item) =>
                     <div className="lg:w-4/5 mx-auto flex flex-wrap" key={item.idMeal} >
                         <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-56 object-cover object-center rounded" src={item.strMealThumb} />
                         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -94,10 +94,10 @@ export default function ItemCard(props) {
                             </div>
                             <div className="flex justify-between gap-2">
                                 <span className="title-font font-medium text-2xl text-gray-900">₹{item.idMeal.slice(2, 4)}.00</span>
-                                <div className='flex gap-2 '>
-                                    <Link to='/checkout' onClick={() => handleAdd(item)} className="flex ml-auto text-white hover:bg-red-600 bg-red-500 border-0 md:py-2 md:px-6 sm:p-2 p-1 py-2 focus:outline-none  rounded">Check out</Link>
-                                    <button onClick={() => handleCart(item)} className="flex ml-auto text-white hover:bf-green-600 bg-green-500 border-0 md:py-2 md:px-6 sm:p-2 p-1 py-2 focus:outline-none  rounded">Add to cart</button>
-                                    <button className="rounded-full w-10 h-10 bg-gray-200 hover:bg-pink-300  p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                <div className='flex md:gap-2 gap-1'>
+                                    <Link to='/checkout' onClick={() => handleAdd(item)} className="flex ml-auto text-white hover:bg-red-600 bg-red-500 border-0 md:py-2 md:px-6 sm:p-2  p-1 py-2 focus:outline-none  rounded">Check out</Link>
+                                    <button onClick={() => handleCart(item)} className="flex ml-auto text-white hover:bf-green-600 bg-green-500 border-0 md:py-2 md:px-6 sm:p-2  p-1 py-2 focus:outline-none  rounded">Add to cart</button>
+                                    <button className="rounded-full w-10 h-10 bg-gray-200 hover:bg-pink-300  p-0 border-0 inline-flex items-center justify-center text-gray-500 md:ml-4 ml-1">
                                         <svg onClick={favourite} fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className={like === false ? "w-5 h-5 hover:text-pink-500" : "w-5 h-5 text-pink-500"} viewBox="0 0 24 24">
                                             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                                         </svg>

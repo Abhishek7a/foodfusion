@@ -18,12 +18,12 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <Router>
+        <Router  basename="/food_fusion">
           <ScrollToTop />
           <Routes>
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/SignUp' element={<SignUp />} />
-            <Route exact path='/food_fusion' element={<Home />} />
+            <Route exact path='/' element={<Home />} />
             <Route exact path='/checkout' element={<CheckOutPage />} />
             <Route exact path='/item/:id' element={<ItemPage />} />
             <Route exact path='/productList/:id' element={<ItemList />} />

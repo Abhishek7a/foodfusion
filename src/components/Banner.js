@@ -8,7 +8,7 @@ import { Popover } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUserCircle } from "react-icons/fa"
-// import logo from '../assets/logo1.png';
+import logo from '../assets/logo1.png';
 import backgroundImage from '../assets/background.avif';
 
 export default function Navbar() {

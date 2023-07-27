@@ -36,7 +36,7 @@ export default function OrderForm() {
                 currency: "INR",
                 name: "Food Fusion",
                 description: "Food Item Purchase ",
-                image: {logo},
+                image: 'https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo.jpg',
                 handler: () => {
                     alert("Payment Done")
                 },

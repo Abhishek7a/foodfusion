@@ -13,7 +13,7 @@ export default function Cart(props) {
 
   let cost = 0;
   cart.cart.map((item) => {
-    cost += parseInt(item.idMeal.slice(2, 4));
+    return cost += parseInt(item.idMeal.slice(2, 4));
   })
 
   return (
@@ -40,7 +40,7 @@ export default function Cart(props) {
                     cart.cart.map((item) => {
                       return (<div className="mt-8" key={item.idMeal}>
                         <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
+                          <ul className="-my-6 divide-y divide-gray-200">
                             <li className="flex py-6">
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img src={item.strMealThumb} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center" />
@@ -49,14 +49,14 @@ export default function Cart(props) {
                                 <div>
                                   <div className="flex justify-between text-base font-medium text-gray-900">
                                     <h3>
-                                      <a href="#">{item.strMeal}</a>
+                                      <Link to="#">{item.strMeal}</Link>
                                     </h3>
-                                    <p className="ml-4">₹{item.idMeal.slice(2, 4)}.00</p>
+                                    <span className="ml-4">₹{item.idMeal.slice(2, 4)}.00</span>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">{item.strCategory}</p>
+                                  <span className="mt-1 text-sm text-gray-500">{item.strCategory}</span>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
-                                  <p className="text-gray-500">Qty {item.quantity}</p>
+                                  <span className="text-gray-500">Qty {item.quantity}</span>
                                   <div className="flex">
                                     <button onClick={() => handleRemove(item.idMeal)}
                                       type="button" className="font-medium text-red-600 hover:text-red-500">Remove</button>
@@ -74,15 +74,15 @@ export default function Cart(props) {
 
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
-                    <p>Subtotal</p>
-                    <p>₹{cost}</p>
+                    <span>Subtotal</span>
+                    <span>₹{cost}</span>
                   </div>
-                  <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                  <span className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</span>
                   <div className="mt-6">
                     <Link to='/checkout' className="flex items-center justify-center rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700">Checkout</Link>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                    <p >
+                    <span >
                       <div>
                         or
                       </div>
@@ -90,7 +90,7 @@ export default function Cart(props) {
                         Add more items
                         <span aria-hidden="true"> &rarr;</span>
                       </Link>
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>

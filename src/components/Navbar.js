@@ -3,25 +3,25 @@ import axios from 'axios';
 import { FaSearch, FaUserCircle, FaShoppingCart } from "react-icons/fa"
 import { HiLocationMarker } from "react-icons/hi"
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Popover } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import logo from '../assets/logo1.png';
+// import logo from '../assets/logo1.png';
 
 export default function Navbar(props) {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const [item, setItem] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
-  const URL = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
-
+  
   const handleSelect = (event) => {
     setSelectedOption(event.target.value);
   };
-
+  
   useEffect(() => {
+    const URL = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
     const fetchData = async () => {
       try {
         const response = await axios.get(URL);
@@ -39,10 +39,11 @@ export default function Navbar(props) {
     Cookies.remove('jwt');
     navigate('/login');
   }
+
   return (
     <div className='flex justify-between bg-gray-900 fixed w-full z-10'>
       <div className='w-24 '>
-        <img src={logo} alt="logo" />
+        <img src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo1.png' alt="logo" />
       </div>
       <div className='bg-gray-900 lg:flex hidden mx-auto mt-2 p-5 w-1/2 justify-around  rounded'>
         <div className='flex border-gray-500 pb-3'>
@@ -50,8 +51,9 @@ export default function Navbar(props) {
             <HiLocationMarker />
           </div>
           <select className='outline-none  bg-gray-900 text-white pl-1' value={selectedOption} onChange={handleSelect}>
-            {item.map((area) => {
-              return (<option key={area.strArea} value={area.strArea}>{area.strArea}</option>)
+            {item.map((area, index) => {
+              return (<option key={index} value={area.strArea}>{area.strArea}</option>
+              )
             })
             }
           </select>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function PageNotFound() {
@@ -16,9 +16,9 @@ export default function PageNotFound() {
             >
               Go back home
             </Link>
-            <a href="#" className="text-sm font-semibold text-gray-900">
+            <Link to="#" className="text-sm font-semibold text-gray-900">
               Contact support <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </div>
       </main>

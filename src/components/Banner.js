@@ -8,7 +8,7 @@ import { Popover } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUserCircle } from "react-icons/fa"
-import logo from '../assets/logo1.png';
+// import logo from '../assets/logo1.png';
 import backgroundImage from '../assets/background.avif';
 
 export default function Navbar() {
@@ -17,8 +17,8 @@ export default function Navbar() {
   const [selectedOption, setSelectedOption] = useState('');
   const [item, setItem] = useState([]);
 
-  const URL = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
   useEffect(() => {
+    const URL = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
     const fetchData = async () => {
       try {
         const response = await axios.get(URL);
@@ -41,11 +41,11 @@ export default function Navbar() {
   }
   return (
     <>
-      <header className='h-full' style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <header className='h-full' style={{ backgroundImage: `url(https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/background.avif)` }}>
         <div className='h-full bg-cover bg-center' style={{ background: "rgba(0,0,0,0.5" }}>
           <div className='flex justify-between '>
             <div className='w-28'>
-              <img src={logo} alt="" />
+              <img src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo1.png' alt="" />
             </div>
             <div className="text-gray-600 body-font ">
               <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -178,7 +178,7 @@ export default function Navbar() {
                 </div>
                 <select value={selectedOption} className='outline-none md:pr-52 pr-24 lg:pr-5 ps-3' onChange={handleSelect}>
                   {item.map((area) => {
-                    return (<option value={area.strArea}>{area.strArea}</option>)
+                    return (<option key={area.strArea} value={area.strArea}>{area.strArea}</option>)
                   })
                   }
                 </select>

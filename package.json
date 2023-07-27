@@ -13,9 +13,8 @@
     "gapi-script": "^1.2.0",
     "js-cookie": "^3.0.5",
     "postcss": "^8.4.24",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-google-login": "^5.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^8.1.1",
@@ -26,7 +25,6 @@
     "tailwindcss": "^3.3.2",
     "web-vitals": "^2.1.4"
   },
- 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -56,5 +54,4 @@
   "devDependencies": {
     "gh-pages": "^5.0.0"
   }
- 
 }

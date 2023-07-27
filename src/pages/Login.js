@@ -11,7 +11,7 @@ export default function Login() {
   // const client_id = '430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com';
   const navigate = useNavigate();
   const [form, setform] = useState({ password: undefined, email: undefined });
-  const URL = 'http://localhost:5000/login';
+  const URL = 'http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/login';
 
   // function handleGoogleLoginSuccess(response) {
   //   // Handle the successful login response
@@ -116,7 +116,7 @@ export default function Login() {
                 </div>
 
                 <div className="mb-3 flex flex-wrap content-center ">
-                  <input id="remember" type="checkbox" className="mr-1 checked:bg-red-700  " /> <label for="remember" className="mr-auto text-xs font-semibold">Remember for 30 days</label>
+                  <input id="remember" type="checkbox" className="mr-1 checked:bg-red-700  " /> <label htmlFor="remember" className="mr-auto text-xs font-semibold">Remember for 30 days</label>
                   <Link to="#" className="text-xs font-semibold text-red-700">Forgot password?</Link>
                 </div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { remove } from '../Redux/Reduser/Reducer';
 
@@ -13,7 +13,7 @@ export default function Cart(props) {
 
   let cost = 0;
   cart.cart.map((item) => {
-    return cost += parseInt(item.idMeal.slice(2, 4));
+    return cost += parseInt(item.idMeal.slice(2, 4) * item.quantity);
   })
 
   return (
@@ -79,7 +79,9 @@ export default function Cart(props) {
                   </div>
                   <span className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</span>
                   <div className="mt-6">
-                    <Link to='/checkout' className="flex items-center justify-center rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700">Checkout</Link>
+                    {window.location.pathname === '/checkout' ? <div onClick={props.openCart} className="flex items-center justify-center rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 cursor-pointer">Checkout</div> :
+                      <Link to='/checkout' className="flex items-center justify-center rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700">Checkout</Link>
+                    }
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <span >

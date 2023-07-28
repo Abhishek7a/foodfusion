@@ -11,7 +11,7 @@ export default function Login() {
   // const client_id = '430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com';
   const navigate = useNavigate();
   const [form, setform] = useState({ password: undefined, email: undefined });
-  const URL = 'http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/login';
+  const URL = 'http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/login';
 
   // function handleGoogleLoginSuccess(response) {
   //   // Handle the successful login response

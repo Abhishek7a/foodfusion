@@ -12,10 +12,10 @@ export default function OrderForm() {
     const [data, setData] = useState([]);
     const [edit, setEdit] = useState(0);
     const [form, setform] = useState({ name: undefined, lastName: undefined, email: undefined, region: 'India', address: undefined, city: undefined, state: undefined, pinCode: undefined });
-    const URL = `http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/isLogin`;
-    const URL2 = `http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/orderDetails`;
-    const URL_updateUser = `http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/updateOrderDetails`;
-    const URL_fetchUser = `http://ec2-54-253-84-249.ap-southeast-2.compute.amazonaws.com:5000/fetchUserDetails`;
+    const URL = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/isLogin`;
+    const URL2 = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/orderDetails`;
+    const URL_updateUser = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/updateOrderDetails`;
+    const URL_fetchUser = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/fetchUserDetails`;
     const navigate = useNavigate();
     const token = Cookies.get('jwt');
 

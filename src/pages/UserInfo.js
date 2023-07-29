@@ -6,6 +6,10 @@ import { FaUserCircle } from "react-icons/fa"
 export default function UserInfo() {
   const URL = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/isLogin`;
   const URL_fetchUser = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/fetchUserDetails`;
+
+  // const URL = `http://localhost:5000/isLogin`;
+  // const URL_fetchUser = `http://localhost:5000/fetchUserDetails`;
+
   const navigate = useNavigate();
   const token = Cookies.get('jwt');
   const [data, setData] = useState([]);

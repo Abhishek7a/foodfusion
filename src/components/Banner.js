@@ -97,7 +97,7 @@ export default function Navbar() {
                                       <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
                                     </svg>
                                     <span className="flex-1 ml-3 whitespace-nowrap">Cart</span>
-                                    {cart.cart.length > 1 && <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-red-700 dark:text-red-200">
+                                    {cart.cart.length > 0 && <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-red-700 dark:text-red-200">
                                       {cart.cart.length}
                                     </span>}
                                   </Link>
@@ -176,7 +176,7 @@ export default function Navbar() {
                 <div className='text-red-500 mt-1 text-xl'>
                   <HiLocationMarker />
                 </div>
-                <select value={selectedOption} className='outline-none md:pr-52 pr-24 lg:pr-5 ps-3' onChange={handleSelect}>
+                <select value={selectedOption} className='outline-none bg-transparent md:pr-52 pr-24 lg:pr-5 ps-3' onChange={handleSelect}>
                   {item.map((area) => {
                     return (<option key={area.strArea} value={area.strArea}>{area.strArea}</option>)
                   })

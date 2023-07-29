@@ -79,7 +79,7 @@ export default function OrderTrack() {
             </div>
             <div className="block px-6 md:px-10 pt-4 md:py-2  rounded-lg shadow-lg bg-gray-100 max-w-md ml-6 md:mb-10">
               <div className="flex justify-between mb-4">
-                <div className="font-medium text-red-600   hover:text-red-700 focus:text-red-800 duration-300 transition ease-in-out md:text-xl">
+                <div className="font-medium text-red-600   hover:text-red-700 focus:text-red-800 duration-300 transition ease-in-out md:text-xl text-sm">
                   Out of dilivary
                 </div>
               </div>

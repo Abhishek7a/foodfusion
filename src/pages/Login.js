@@ -12,6 +12,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [form, setform] = useState({ password: undefined, email: undefined });
   const URL = 'http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/login';
+  // const URL = `http://localhost:5000/login`;
+
 
   // function handleGoogleLoginSuccess(response) {
   //   // Handle the successful login response
@@ -30,7 +32,7 @@ export default function Login() {
   const goBack = () => {
     navigate('/');
   };
-  useEffect(() => {
+  // useEffect(() => {
     // function start() {
     //   gapi.client.init({
     //     clientId: client_id,
@@ -39,7 +41,7 @@ export default function Login() {
     // }
     // gapi.load('client:auth2', start);
     // google.accounts.id.prompt();
-  });
+  // });
   // var accessToken=gapi.auth.getToken().acess_token;
   // }
   // function startGoogleSignIn() {

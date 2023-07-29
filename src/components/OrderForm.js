@@ -16,6 +16,12 @@ export default function OrderForm() {
     const URL2 = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/orderDetails`;
     const URL_updateUser = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/updateOrderDetails`;
     const URL_fetchUser = `http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/fetchUserDetails`;
+
+    // const URL = `http://localhost:5000/isLogin`;
+    // const URL_fetchUser = `http://localhost:5000/fetchUserDetails`;
+    // const URL2 = `http://localhost:5000/orderDetails`;
+    // const URL_updateUser = `http://localhost:5000/updateOrderDetails`;
+
     const navigate = useNavigate();
     const token = Cookies.get('jwt');
 
@@ -83,10 +89,10 @@ export default function OrderForm() {
             });
             const result = await response.json();
             if (result.lastName)
-                setEdit(1);
+            setEdit(1);
             if (result.message === 'Unauthorized')
-                navigate('/ login')
-
+            navigate('/ login')
+            
             setform(result);
         }
         catch (error) {

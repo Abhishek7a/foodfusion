@@ -13,6 +13,7 @@ export default function SignUp() {
   const [form, setform] = useState({ name: undefined, password: undefined, email: undefined });
   const URL = 'http://ec2-3-27-44-195.ap-southeast-2.compute.amazonaws.com:5000/signUp';
 
+
   // function handleGoogleLoginSuccess(response) {
   //   // Handle the successful login response
   //   console.log('Google login successful:', response);

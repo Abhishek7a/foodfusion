@@ -39,7 +39,6 @@ export default function Navbar(props) {
     Cookies.remove('jwt');
     navigate('/login');
   }
-
   return (
     <div className='flex justify-between bg-gray-900 fixed w-full z-10'>
       <div className='w-24 '>
@@ -69,7 +68,7 @@ export default function Navbar(props) {
       <div className='flex'>
         {Cookies.get('jwt') ?
           <div className='text-white text-3xl m-auto  md:px-4  cursor-pointer  '>
-            <Popover className="relative mt-1 outline-none">
+            <Popover className="relative mt-[7px] mr-2 outline-none">
               <Popover.Button><FaUserCircle /></Popover.Button>
               <Popover.Panel className="absolute right-0  text-black z-10">
                 <div className="max-w-2xl mx-auto">
@@ -121,7 +120,7 @@ export default function Navbar(props) {
                               <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
                             </svg>
                             <span className="flex-1 ml-3 whitespace-nowrap">Cart</span>
-                            {cart.cart.length > 1 && <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-red-700 dark:text-red-200">
+                            {cart.cart.length > 0 && <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-red-700 dark:text-red-200">
                               {cart.cart.length}
                             </span>}
                           </Link>

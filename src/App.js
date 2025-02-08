@@ -30,7 +30,7 @@ function App() {
             <Route exact path='/orderPage' element={<OrderPage />} />
             <Route exact path='/orderTrack' element={<OrderTrack />} />
             <Route exact path='/userProfile' element={<UserProfile />} />
-            <Route path='*' element={<NotFound />} />
+           
           </Routes>
         </Router >
       </Provider >

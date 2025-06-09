@@ -113,10 +113,10 @@ export default function SignUp() {
                   style={{ width: "100%" }}
                   className="max-w-md"
                 />
-                   <button className="flex flex-wrap justify-center w-full border border-gray-300  text-gray-500 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                   {/* <button className="flex flex-wrap justify-center w-full border border-gray-300  text-gray-500 hover:border-gray-500 px-2 py-1.5 rounded-md">
                   <img className="w-5 mr-2" src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" />
                   Sign up with Google
-                </button>
+                </button> */}
                 {/* <GoogleLogin className="flex flex-wrap justify-center  mt-3 w-full  px-2 py-1.5 rounded-md"
                   clientId="430485206941-gd8lr3fhh08ars372i29t3j7sss81v2h.apps.googleusercontent.com"
                   buttonText="Sign in with Google"

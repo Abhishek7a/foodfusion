@@ -173,10 +173,10 @@ export default function Navbar(props) {
           </div>
           :
           <>
-            <nav className="md:ml-auto flex mt-2 text-white flex-wrap items-center text-base justify-center">
+            <nav className="md:ml-auto flex mt-2 mb-2 text-white flex-wrap items-center text-base justify-center">
               <Link to="/signUp" className="md:mr-5 mr-2 md:py-2 md:px-3 sm:p-2 p-2 bg-red-600 rounded hover:bg-red-700">Sign Up</Link>
             </nav>
-            <nav className="md:ml-auto flex mt-2 text-white flex-wrap items-center text-base justify-center">
+            <nav className="md:ml-auto flex mt-2 mb-2 text-white flex-wrap items-center text-base justify-center">
               <Link to="/login" className="inline-flex items-center hover:bg-green-600  bg-green-500  border-0 md:py-2 md:px-3 sm:p-2 p-2 focus:outline-none  rounded text-base  md:mt-0">Log In
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>

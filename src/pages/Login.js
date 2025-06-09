@@ -99,7 +99,7 @@ export default function Login() {
       <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 md:py-10">
         <div className=" lg:flex-row shadow-md md:flex-col sm:flex flex-col ">
           <div className="flex flex-wrap content-center  justify-center lg:rounded-l-md  rounded-t-md   bg-white md:object-none">
-            {/* <img className="bg-center bg-no-repeat bg-cover lg:w-96 w-24" src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/2.png' alt='logo' /> */}
+            <img className="bg-center bg-no-repeat bg-cover lg:w-96 w-24" src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/2.png' alt='logo' />
           </div>
           <div className="flex flex-wrap content-center justify-center lg:rounded-r-md rounded-b-md bg-white  lg:p-10 pt-0 p-10 ">
             <div className="w-72">

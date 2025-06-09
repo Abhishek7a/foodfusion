@@ -42,7 +42,7 @@ export default function Navbar(props) {
   return (
     <div className='flex justify-between bg-gray-900 fixed w-full z-10'>
       <div className='w-24 '>
-        {/* <img src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo1.png' alt="logo" /> */}
+        <img src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo1.png' alt="logo" />
       </div>
       {/* <div className='bg-gray-900 lg:flex hidden mx-auto mt-2 p-5 w-1/2 justify-around  rounded'>
         <div className='flex border-gray-500 pb-3'>

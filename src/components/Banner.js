@@ -41,8 +41,8 @@ export default function Navbar() {
   }
   return (
     <>
-      {/* <header className='h-full'  */}
-      {/* // style={{ backgroundImage: `url(https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/background.avif)` }}> */}
+      <header className='h-full' 
+       style={{ backgroundImage: `url(https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/background.avif)` }}>
         <div className='h-full bg-cover bg-center' style={{ background: "rgba(0,0,0,0.5" }}>
           <div className='flex justify-between '>
             <div className='w-28'>
@@ -194,7 +194,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      {/* </header> */}
+      </header>
       <ToastContainer />
     </>
   )

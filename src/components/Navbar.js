@@ -44,7 +44,7 @@ export default function Navbar(props) {
       <div className='w-24 '>
         {/* <img src='https://raw.githubusercontent.com/Abhishek7a/food_fusion/master/src/assets/logo1.png' alt="logo" /> */}
       </div>
-      <div className='bg-gray-900 lg:flex hidden mx-auto mt-2 p-5 w-1/2 justify-around  rounded'>
+      {/* <div className='bg-gray-900 lg:flex hidden mx-auto mt-2 p-5 w-1/2 justify-around  rounded'>
         <div className='flex border-gray-500 pb-3'>
           <div className='mt-3 text-red-500 text-lg'>
             <HiLocationMarker />
@@ -64,7 +64,7 @@ export default function Navbar(props) {
           </div>
           <input type="text" className='outline-none pl-3 bg-gray-900 text-white' placeholder='Search' />
         </div>
-      </div>
+      </div> */}
       <div className='flex'>
         {Cookies.get('jwt') ?
           <div className='text-white text-3xl m-auto  md:px-4  cursor-pointer  '>

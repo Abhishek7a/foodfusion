@@ -172,7 +172,7 @@ export default function Navbar() {
               <p className='md:text-4xl mt-5 text-xl text-gray-400'>Find the best restaurants, cafés and bars in India</p>
             </div>
             
-            <div className='lg:bg-white lg:flex  mx-auto mt-5 w-3/4 md:w-1/2 justify-around rounded md:pb-0 pb-5'>
+            {/* <div className='lg:bg-white lg:flex  mx-auto mt-5 w-3/4 md:w-1/2 justify-around rounded md:pb-0 pb-5'>
               <div className='flex border-gray-500 bg-white p-3 rounded'>
                 <div className='text-red-500 mt-1 text-xl'>
                   <HiLocationMarker />
@@ -191,7 +191,7 @@ export default function Navbar() {
                 </div>
                 <input type="text" className='outline-none ps-3 bg-transparent' placeholder='Search' />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>

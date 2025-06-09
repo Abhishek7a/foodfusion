@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <Router >
+        <Router basename='foodfusion'>
           <ScrollToTop />
           <Routes>
             <Route exact path='/login' element={<Login />} />
